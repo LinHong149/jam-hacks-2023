@@ -1,12 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import HomeScreen from './screens/HomeScreen';
+import FYGScreen from './screens/FYGScreen';
 
 export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
-      <HomeScreen></HomeScreen>
+      <FYGScreen></FYGScreen>
+      {/* <HomeScreen/> */}
     </View>
   );
 }
