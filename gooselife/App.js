@@ -3,12 +3,14 @@ import { StyleSheet, Text, View } from 'react-native';
 import HomeScreen from './screens/HomeScreen';
 import FYGScreen from './screens/FYGScreen';
 import GooseScreen from './screens/GooseScreen';
+import ProfileScreen from './screens/ProfileScreen';
 
 export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
-      <GooseScreen></GooseScreen>
+      <ProfileScreen></ProfileScreen>
+      {/* <GooseScreen></GooseScreen> */}
       {/* <FYGScreen></FYGScreen> */}
       {/* <HomeScreen/> */}
     </View>
