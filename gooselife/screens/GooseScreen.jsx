@@ -1,6 +1,6 @@
 import React from 'react'
-import { StyleSheet, View, SafeAreaView, Image, Text, TextInput, Pressable } from 'react-native'
-
+import { StyleSheet, View, SafeAreaView, Image, Text, TextInput, Pressable, ImageBackground } from 'react-native'
+import GooseBackground from '../assets/GooseBackground.png'
 // const Goose = ({ Name, Level, Program }) => {
 //     return (
 //       <View style={styles.gooseContainer}>
@@ -17,6 +17,7 @@ import { StyleSheet, View, SafeAreaView, Image, Text, TextInput, Pressable } fro
 export default function GooseScreen() {
     return (
         <View style={styles.container}>
+            <ImageBackground source={GooseBackground} style={styles.backgroundImage}></ImageBackground>
             <View style={styles.statsContainer}>
                 <Image style={styles.statsImage}></Image>
                 <View style={styles.statsProgress}>
@@ -75,6 +76,14 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'column',
         gap: 24
+    },
+    backgroundImage: {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        resizeMode: 'cover'
     },
     
 
