@@ -51,7 +51,7 @@ export default function ProfileScreen() {
     
   
     return (
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
             <View style={styles.profileContainer}>
                 <Image style={styles.profileImage}></Image>
                 <Text style={styles.profileName}>Name</Text>
@@ -128,7 +128,7 @@ export default function ProfileScreen() {
                 </View>
             </View>
                 
-        </View>
+        </SafeAreaView>
     );
 }
 

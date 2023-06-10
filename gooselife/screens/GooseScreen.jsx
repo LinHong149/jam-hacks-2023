@@ -16,7 +16,7 @@ import GooseBackground from '../assets/GooseBackground.png'
 
 export default function GooseScreen() {
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <ImageBackground source={GooseBackground} style={styles.backgroundImage}></ImageBackground>
             <View style={styles.statsContainer}>
                 <Image style={styles.statsImage}></Image>
@@ -63,7 +63,7 @@ export default function GooseScreen() {
                 </View>
             </View>
             
-        </View>
+        </SafeAreaView>
     );
 }
 
