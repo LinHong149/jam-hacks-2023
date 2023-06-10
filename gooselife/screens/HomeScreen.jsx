@@ -3,7 +3,7 @@ import { StyleSheet, View, SafeAreaView, Image, Text } from 'react-native'
 
 const FoodWidget = () => {
   return (
-    <div>HomeScreen</div>
+    <Text>Food</Text>
   )
 }
 
