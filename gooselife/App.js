@@ -3,6 +3,8 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { useFonts } from 'expo-font';
+
 // import { StateContext, AppProvider } from './StateContext';
 
 import HomeScreen from './screens/HomeScreen';
@@ -14,6 +16,14 @@ import Navbar from './components/Navbar';
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+
+  const [loaded] = useFonts({
+    MS: require('./fonts/Montserrat-SemiBold.ttf'),
+  });
+  if (!loaded) {
+    return null;
+  }
+
   return (
     // <AppProvider>
       <NavigationContainer>

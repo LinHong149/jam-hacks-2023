@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { StyleSheet, View, SafeAreaView, Image, Text, TextInput, Pressable, ImageBackground } from 'react-native'
 import GooseBackground from '../assets/GooseBackground.png'
 import adultGoose from '../assets/adultGoose.png'
@@ -7,8 +7,13 @@ import eggGoose from '../assets/eggGoose.png'
 import heart from '../assets/heart.png'
 import brain from '../assets/brain.png'
 
+// export const currLevel = 54
 export default function GooseScreen() {
-    const level = 50
+    const [level, setLevel] = useState(0);
+    const handleLevel = () => {
+        setLevel((prevLevel => prevLevel + 1))
+    };
+
     return (
         <SafeAreaView style={styles.container}>
             <ImageBackground source={GooseBackground} style={styles.backgroundImage}></ImageBackground>
@@ -42,21 +47,26 @@ export default function GooseScreen() {
 
 
             <View style={styles.actionsContainer}>
-                <View style={styles.actionsButton}>
+                <Pressable style={styles.actionsButton}
+                    onPress={handleLevel}>
                     <Image style={styles.actions}></Image>
-                </View>
-                <View style={styles.actionsButton}>
+                </Pressable>
+                <Pressable style={styles.actionsButton}
+                    onPress={handleLevel}>
                     <Image style={styles.actions}></Image>
-                </View>
-                <View style={styles.actionsButton}>
+                </Pressable>
+                <Pressable style={styles.actionsButton}
+                    onPress={handleLevel}>
                     <Image style={styles.actions}></Image>
-                </View>
-                <View style={styles.actionsButton}>
+                </Pressable>
+                <Pressable style={styles.actionsButton}
+                    onPress={handleLevel}>
                     <Image style={styles.actions}></Image>
-                </View>
-                <View style={styles.actionsButton}>
+                </Pressable>
+                <Pressable style={styles.actionsButton}
+                    onPress={handleLevel}>
                     <Image style={styles.actions}></Image>
-                </View>
+                </Pressable>
             </View>
             
         </SafeAreaView>
@@ -65,6 +75,7 @@ export default function GooseScreen() {
 
 const styles = StyleSheet.create({
     container: {
+        fontFamily: 'MS',
         backgroundColor: '#F6F5FC',
         width: '100%',
         height: '100%',
@@ -76,6 +87,7 @@ const styles = StyleSheet.create({
         gap: 24
     },
     backgroundImage: {
+        fontFamily: 'MS',
         position: 'absolute',
         top: 0,
         left: 0,
@@ -86,6 +98,7 @@ const styles = StyleSheet.create({
     
 
     statsContainer: {
+        fontFamily: 'MS',
         width: '100%',
         display: 'flex',
         flexDirection: 'row',
@@ -93,16 +106,19 @@ const styles = StyleSheet.create({
         gap: 16
     },
     statsImage: {
+        fontFamily: 'MS',
         width: 36,
         aspectRatio: 1,
         resizeMode: 'contain'
     },
     statsProgress: {
+        fontFamily: 'MS',
         flexGrow: 1,
         height: 20,
         position: 'relative'
     },
     statsProgressTotal: {
+        fontFamily: 'MS',
         position: 'absolute',
         height: 20,
         borderRadius: 10,
@@ -111,6 +127,7 @@ const styles = StyleSheet.create({
         opacity: 0.5
     },
     statsProgressCurrent: {
+        fontFamily: 'MS',
         position: 'absolute',
         height: 20,
         borderRadius: 10,
@@ -120,6 +137,7 @@ const styles = StyleSheet.create({
 
 
     gooseContainer: {
+        fontFamily: 'MS',
         display: 'flex',
         flexGrow: 1,
         flexDirection: 'row',
@@ -127,6 +145,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     gooseImage: {
+        fontFamily: 'MS',
         width: 600,
         height: 300,
         resizeMode: 'contain',
@@ -134,6 +153,7 @@ const styles = StyleSheet.create({
         bottom: 0,
     },
     gooseImageBigger: {
+        fontFamily: 'MS',
         width: 800,
         height: 450,
         resizeMode: 'contain',
@@ -142,6 +162,8 @@ const styles = StyleSheet.create({
     },
 
     levelContainer: {
+        width: 100,
+        fontFamily: 'MS',
         display: 'flex',
         position: 'absolute',
         right: 0,
@@ -149,15 +171,18 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     levelNext: {
+        fontFamily: 'MS',
         color: '#204940',
         fontSize: 16,
     },
     levelProgress: {
+        fontFamily: 'MS',
         width: 30,
         aspectRatio: 1/8,
         position: 'relative'
     },
     levelProgressTotal: {
+        fontFamily: 'MS',
         position: 'absolute',
         width: 30,
         borderRadius: 15,
@@ -166,6 +191,7 @@ const styles = StyleSheet.create({
         bottom: 0
     },
     levelProgressCurrent: {
+        fontFamily: 'MS',
         position: 'absolute',
         width: 30,
         borderRadius: 15,
@@ -174,12 +200,14 @@ const styles = StyleSheet.create({
         bottom: 0
     },
     levelCurrent: {
+        fontFamily: 'MS',
         color: '#EACB76',
         fontSize: 20,
     },
 
 
     actionsContainer: {
+        fontFamily: 'MS',
         width: '100%',
         display: 'flex',
         flexDirection: 'row',
@@ -188,6 +216,7 @@ const styles = StyleSheet.create({
         marginBottom: 20,
     },
     actionsButton: {
+        fontFamily: 'MS',
         flexGrow: 1,
         aspectRatio: 1,
         backgroundColor: '#B8D8D4',

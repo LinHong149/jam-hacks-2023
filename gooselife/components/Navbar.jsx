@@ -37,6 +37,7 @@ export default function Navbar() {
 
 const styles = StyleSheet.create({
   navContainer: {
+    fontFamily: 'MS',
     flexDirection: 'row',
     justifyContent: 'space-between',
     position: 'absolute',
@@ -50,15 +51,18 @@ const styles = StyleSheet.create({
     borderTopEndRadius: 15,
   },
   navButton: {
+    fontFamily: 'MS',
     alignItems: 'center',
     justifyContent: 'center',
     gap: 2,
   },
   navIcon: {
+    fontFamily: 'MS',
     height: 25,
     resizeMode: 'contain',
   },
   navText: {
+    fontFamily: 'MS',
     fontSize: 10,
     color: '#F6F5FC',
   },

@@ -55,7 +55,7 @@ export default function ProfileScreen() {
       <SafeAreaView style={styles.container}>
             <View style={styles.profileContainer}>
                 <Image style={styles.profileImage} source={Goose1}></Image>
-                <Text style={styles.profileName}>Quackers</Text>
+                <Text style={styles.profileName}>Quackers Fishin</Text>
             </View>
 
 
@@ -135,6 +135,7 @@ export default function ProfileScreen() {
 
 const styles = StyleSheet.create({
     container: {
+        fontFamily: 'MS',
         backgroundColor: '#F6F5FC',
         width: '100%',
         height: '100%',
@@ -148,12 +149,14 @@ const styles = StyleSheet.create({
 
 
     profileContainer: {
+        fontFamily: 'MS',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center'
     },
     profileImage: {
+        fontFamily: 'MS',
         width: 120,
         height: 120,
         // aspectRatio: 1,
@@ -161,21 +164,25 @@ const styles = StyleSheet.create({
         resizeMode: 'cover',
     },
     profileName: {
+        fontFamily: 'MS',
         fontSize: 24,
         color: '#1F1F1F',
     },
 
 
     filterContainer: {
+        fontFamily: 'MS',
         display: 'flex',
         flexDirection: 'column',
         gap: 6
     },
     filterHeader: {
+        fontFamily: 'MS',
         color: '#1F1F1F',
         fontSize: 20
     },
     filterSelections: {
+        fontFamily: 'MS',
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'wrap',
@@ -183,23 +190,27 @@ const styles = StyleSheet.create({
     },
 
     selectionButton: {
+        fontFamily: 'MS',
         padding: 8,
         paddingHorizontal: 12,
         borderRadius: 15,
         backgroundColor: '#F6E1A5',
     },
     selectionButtonPressed: {
+        fontFamily: 'MS',
         padding: 8,
         paddingHorizontal: 12,
         borderRadius: 15,
         backgroundColor: '#EACB76',
     },
     selectionText: {
+        fontFamily: 'MS',
         fontSize: 16,
         color: '#1F1F1F',
         opacity: 0.75
     },
     selectionTextPressed: {
+        fontFamily: 'MS',
         fontSize: 16,
         color: '#1F1F1F',
     },

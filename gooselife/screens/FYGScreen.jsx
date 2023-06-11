@@ -81,10 +81,10 @@ export default function FYGScreen() {
   };
 
   const defaultData = [
-    { Name: 'Ri Hong', Level: 'Lv. 32', Program: 'CS', Picture: Goose1 },
+    { Name: 'Lin Hong', Level: 'Lv. 2', Program: 'SE', Picture: Goose1 },
     { Name: 'Ri Hong', Level: 'Lv. 32', Program: 'CS', Picture: Goose2 },
-    { Name: 'Ri Hong', Level: 'Lv. 32', Program: 'CS', Picture: Goose3 },
-    { Name: 'Ri Hong', Level: 'Lv. 32', Program: 'CS', Picture: Goose4 },
+    { Name: 'Max Sun', Level: 'Lv. 0', Program: 'G', Picture: Goose3 },
+    { Name: 'Bobby Fisher', Level: 'Lv. 932', Program: 'M', Picture: Goose4 },
   ];
   const [filteredResults, setFilteredResults] = useState([]);
 
@@ -209,6 +209,7 @@ export default function FYGScreen() {
 const styles = StyleSheet.create({
   /* Your existing styles... */
   container: {
+    fontFamily: 'MS',
     backgroundColor: '#F6F5FC',
     width: '100%',
     height: '100%',
@@ -223,6 +224,7 @@ const styles = StyleSheet.create({
   header: {
     color: '#1F1F1F',
     fontSize: 20,
+    fontFamily: 'MS',
   },
 
   inputContainer: {
@@ -230,6 +232,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     width: '100%',
     gap: 16,
+    fontFamily: 'MS',
   },
   inputSearch: {
     flexGrow: 1,
@@ -239,6 +242,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     justifyContent: 'center',
     borderRadius: 24,
+    fontFamily: 'MS',
   },
   inputFilter: {
     backgroundColor: '#7A9791',
@@ -248,21 +252,25 @@ const styles = StyleSheet.create({
     borderRadius: 100,
     aspectRatio: 1,
     height: 48,
+    fontFamily: 'MS',
   },
   inputFilterIcon: {
     width: 20,
     height: 20,
     resizeMode: 'contain',
+    fontFamily: 'MS',
   },
 
   resultsContainer: {
     display: 'flex',
     flexDirection: 'column',
     gap: 16,
+    fontFamily: 'MS',
   },
   resultsHeader: {
     color: '#1F1F1F',
     fontSize: 16,
+    fontFamily: 'MS',
   },
 
   gooseContainer: {
@@ -273,12 +281,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: 12,
     justifyContent: 'space-between',
+    fontFamily: 'MS',
   },
 
   gooseProfile: {
     width: 52,
     aspectRatio: 1,
     borderRadius: 100,
+    fontFamily: 'MS',
   },
   gooseTexts: {
     display: 'flex',
@@ -286,12 +296,15 @@ const styles = StyleSheet.create({
     gap: 6,
     color: '#1F1F1F',
     flexGrow: 1,
+    fontFamily: 'MS',
   },
   gooseName: {
     fontSize: 16,
+    fontFamily: 'MS',
   },
   gooseLevel: {
     fontSize: 12,
+    fontFamily: 'MS',
   },
   gooseProgram: {
     display: 'flex',
@@ -301,6 +314,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#EACB76',
     aspectRatio: 1,
     borderRadius: 100,
+    fontFamily: 'MS',
   },
 
   filterContainerAll:{
@@ -311,22 +325,26 @@ const styles = StyleSheet.create({
     gap: 12,
     borderWidth: 2,
     borderRadius: 15,
-    borderColor: '#235F53'
+    borderColor: '#235F53',
+    fontFamily: 'MS',
   },
   filterContainer: {
     display: 'flex',
     flexDirection: 'column',
+    fontFamily: 'MS',
     gap: 6,
   },
   filterHeader: {
     color: '#1F1F1F',
     fontSize: 20,
+    fontFamily: 'MS',
   },
   filterSelections: {
     display: 'flex',
     flexDirection: 'row',
     flexWrap: 'wrap',
     gap: 16,
+    fontFamily: 'MS',
   },
 
   selectionButton: {
@@ -334,20 +352,24 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     borderRadius: 15,
     backgroundColor: '#F6E1A5',
+    fontFamily: 'MS',
   },
   selectionButtonPressed: {
     padding: 8,
     paddingHorizontal: 12,
     borderRadius: 15,
+    fontFamily: 'MS',
     backgroundColor: '#EACB76',
   },
   selectionText: {
     fontSize: 16,
     color: '#1F1F1F',
     opacity: 0.75,
+    fontFamily: 'MS',
   },
   selectionTextPressed: {
     fontSize: 16,
     color: '#1F1F1F',
+    fontFamily: 'MS',
   },
 });
