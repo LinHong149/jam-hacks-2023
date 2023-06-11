@@ -60,7 +60,7 @@ export default function ProfileScreen() {
 
 
             <View style={styles.filterContainer}>
-            <Text style={styles.filterHeader}>Gender</Text>
+                <Text style={styles.filterHeader}>Gender</Text>
                 <View style={styles.filterSelections}>
                 {genders.map((gender, index) => (
                     <Selection
@@ -140,6 +140,7 @@ const styles = StyleSheet.create({
         height: '100%',
         paddingHorizontal: 30,
         paddingTop: 50,
+        paddingBottom: 55,
         display: 'flex',
         flexDirection: 'column',
         gap: 24
@@ -168,7 +169,7 @@ const styles = StyleSheet.create({
     filterContainer: {
         display: 'flex',
         flexDirection: 'column',
-        gap: 12
+        gap: 6
     },
     filterHeader: {
         color: '#1F1F1F',

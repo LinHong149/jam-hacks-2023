@@ -8,7 +8,7 @@ import heart from '../assets/heart.png'
 import brain from '../assets/brain.png'
 
 export default function GooseScreen() {
-    const level = 0
+    const level = 50
     return (
         <SafeAreaView style={styles.container}>
             <ImageBackground source={GooseBackground} style={styles.backgroundImage}></ImageBackground>
@@ -29,9 +29,9 @@ export default function GooseScreen() {
             </View>
 
             <View style={styles.gooseContainer}>
-                <Image style={styles.gooseImage} source={level <= 3 ? eggGoose : level <= 10 ? babyGoose : adultGoose}></Image>
+                <Image style={level <= 10 ? styles.gooseImage : styles.gooseImageBigger} source={level <= 3 ? eggGoose : level <= 10 ? babyGoose : adultGoose}></Image>
                 <View style={styles.levelContainer}>
-                    <Text style={styles.level}>Level {level + 1}</Text>
+                    <Text style={styles.levelNext}>Level {level + 1}</Text>
                     <View style={styles.levelProgress}>
                         <View style={styles.levelProgressTotal}></View>
                         <View style={styles.levelProgressCurrent}></View>
@@ -70,6 +70,7 @@ const styles = StyleSheet.create({
         height: '100%',
         paddingHorizontal: 30,
         paddingTop: 50,
+        paddingBottom: 55,
         display: 'flex',
         flexDirection: 'column',
         gap: 24
@@ -124,8 +125,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        borderWidth: 2,
-        borderColor: 'black'
     },
     gooseImage: {
         width: 600,
@@ -133,19 +132,25 @@ const styles = StyleSheet.create({
         resizeMode: 'contain',
         position: 'absolute',
         bottom: 0,
-
+    },
+    gooseImageBigger: {
+        width: 800,
+        height: 450,
+        resizeMode: 'contain',
+        position: 'absolute',
+        bottom: 0,
     },
 
     levelContainer: {
         display: 'flex',
+        position: 'absolute',
+        right: 0,
         flexDirection: 'column',
         alignItems: 'center',
-        marginRight: 0,
-        marginLeft: 'auto'
     },
     levelNext: {
-        color: '#1F1F1F',
-        fontSize: 12,
+        color: '#204940',
+        fontSize: 16,
     },
     levelProgress: {
         width: 30,
@@ -169,8 +174,8 @@ const styles = StyleSheet.create({
         bottom: 0
     },
     levelCurrent: {
-        color: '#1F1F1F',
-        fontSize: 16,
+        color: '#EACB76',
+        fontSize: 20,
     },
 
 
@@ -179,7 +184,8 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
-        gap: 12
+        gap: 12,
+        marginBottom: 20,
     },
     actionsButton: {
         flexGrow: 1,

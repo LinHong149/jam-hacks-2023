@@ -1,91 +1,116 @@
-import React from 'react'
-import { StyleSheet, View, SafeAreaView, Image, Text } from 'react-native'
-import Goose1 from '../assets/Goose1.png'
+import React, { useState } from 'react';
+import { StyleSheet, View, SafeAreaView, Image, Text, TouchableOpacity } from 'react-native';
+import Goose1 from '../assets/Goose1.png';
+import HighFiveGoose from '../assets/HighFiveGoose.png';
 
-const TimedTask = ({ isMeal }) => {
-    return (
-      <View style={styles.timedTaskContainer}>
-          <View style={styles.timedTaskData}>
-              <Text style={styles.timedTaskHeader}>{isMeal ? 'Meal' : 'Meal'} Time</Text>
-              <View style={styles.timedTaskTexts}>
-                  <Text style={styles.timedTaskType}>{isMeal ? 'Lunch' : 'Sleep'} - </Text>
-                  <Text style={styles.timedTaskTime}>in 30 minutes</Text>
-              </View>
-              <View style={styles.timedTaskProgress}>
-                  <View style={styles.timedTaskProgressTotal}></View>
-                  <View style={styles.timedTaskProgressCurrent}></View>
-              </View>
-          </View>
-  
-          <View style={styles.timedTaskButton}>
-              <Text style={styles.timedTaskButtonText}>I ate</Text>
-          </View>
+const TimedTask = ({ isMeal, onRemove }) => {
+  return (
+    <View style={styles.timedTaskContainer}>
+      <View style={styles.timedTaskData}>
+        <Text style={styles.timedTaskHeader}>{isMeal ? 'Meal' : 'Meal'} Time</Text>
+        <View style={styles.timedTaskTexts}>
+          <Text style={styles.timedTaskType}>{isMeal ? 'Lunch' : 'Sleep'} - </Text>
+          <Text style={styles.timedTaskTime}>in 30 minutes</Text>
+        </View>
+        <View style={styles.timedTaskProgress}>
+          <View style={styles.timedTaskProgressTotal}></View>
+          <View style={styles.timedTaskProgressCurrent}></View>
+        </View>
       </View>
-    )
-  }
 
-  const HygieneTask = () => {
-    return (
-      <View style={styles.hygieneTaskContainer}>
-          <View style={styles.hygieneTaskTexts}>
-              <Text style={styles.hygieneTaskHeader}>Hygiene</Text>
-              <Text style={styles.hygieneTaskText}>Take a shower</Text>
-          </View>
-  
-          <View style={styles.hygieneTaskButton}>
-              <Text style={styles.hygieneTaskButtonText}>I did</Text>
-          </View>
-      </View>
-    )
-  }
+      <TouchableOpacity style={styles.timedTaskButton} onPress={onRemove}>
+        <Text style={styles.timedTaskButtonText}>I ate</Text>
+      </TouchableOpacity>
+    </View>
+  );
+};
 
-  const ProgressTask = ({ isStudy }) => {
-    return (
-      <View style={styles.progressTaskContainer}>
-          <View style={styles.progressTaskData}>
-              <Text style={styles.progressTaskHeader}>{isStudy? 'Study Minutes' : 'Steps'}</Text>
-              <View style={styles.progressTaskTexts}>
-                <Text style={styles.progressTaskCurrent}>##/</Text>
-                <Text style={styles.progressTaskTotal}>##</Text>
-              </View>
-          </View>
-  
-          <View style={styles.progressTaskButton}>
-              <Text style={styles.progressTaskButtonText}>Start</Text>
-          </View>
+const HygieneTask = ({ onRemove }) => {
+  return (
+    <View style={styles.hygieneTaskContainer}>
+      <View style={styles.hygieneTaskTexts}>
+        <Text style={styles.hygieneTaskHeader}>Hygiene</Text>
+        <Text style={styles.hygieneTaskText}>Take a shower</Text>
       </View>
-    )
-  }
+
+      <TouchableOpacity style={styles.hygieneTaskButton} onPress={onRemove}>
+        <Text style={styles.hygieneTaskButtonText}>I did</Text>
+      </TouchableOpacity>
+    </View>
+  );
+};
+
+const ProgressTask = ({ isStudy, onRemove }) => {
+  return (
+    <View style={styles.progressTaskContainer}>
+      <View style={styles.progressTaskData}>
+        <Text style={styles.progressTaskHeader}>{isStudy ? 'Study Minutes' : 'Steps'}</Text>
+        <View style={styles.progressTaskTexts}>
+          <Text style={styles.progressTaskCurrent}>##/</Text>
+          <Text style={styles.progressTaskTotal}>##</Text>
+        </View>
+      </View>
+
+      <TouchableOpacity style={styles.progressTaskButton} onPress={onRemove}>
+        <Text style={styles.progressTaskButtonText}>Start</Text>
+      </TouchableOpacity>
+    </View>
+  );
+};
 
 export default function HomeScreen() {
-    return (
-        <SafeAreaView style={styles.container}>
-            <View style={styles.topContainer}>
-                <Image style={styles.topPicture} source={Goose1}></Image>
-                <View style={styles.topTextsContainers}>
-                    <Text style={styles.topWelcome}>Welcome</Text>
-                    <Text style={styles.topName}>Vickey Chen</Text>
-                </View>
-                <View style={styles.topLevelContainer}>
-                    <Text style={styles.topLevel}>Lv. 1</Text>
-                </View>
-            </View>
+  const [tasks, setTasks] = useState([
+    { id: 1, type: 'TimedTask', isMeal: true },
+    { id: 2, type: 'TimedTask', isMeal: false },
+    { id: 3, type: 'HygieneTask' },
+    { id: 4, type: 'ProgressTask', isStudy: false },
+    { id: 5, type: 'ProgressTask', isStudy: true },
+  ]);
 
-            <View style={styles.factContainer}>
-                <Text style={styles.factHeader}>Did you know...</Text>
-                <Text style={styles.factText}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi earum accusantium nesciunt nisi eaque blanditiis omnis saepe autem, est, amet provident error eligendi. Fuga iure ab accusamus est necessitatibus voluptatibus.</Text>
-            </View>
+  const removeTask = (taskId) => {
+    setTasks((prevTasks) => prevTasks.filter((task) => task.id !== taskId));
+  };
 
-            <View style={styles.taskContainer}>
-                <Text style={styles.taskHeader}>Earn Points</Text>
-                <TimedTask isMeal={true}/>
-                <TimedTask isMeal={false}/>
-                <HygieneTask/>
-                <ProgressTask isStudy={false}/>
-                <ProgressTask isStudy={true}/>
-            </View>
-        </SafeAreaView>
-    );
+  const renderTask = (task) => {
+    switch (task.type) {
+      case 'TimedTask':
+        return <TimedTask key={task.id} isMeal={task.isMeal} onRemove={() => removeTask(task.id)} />;
+      case 'HygieneTask':
+        return <HygieneTask key={task.id} onRemove={() => removeTask(task.id)} />;
+      case 'ProgressTask':
+        return <ProgressTask key={task.id} isStudy={task.isStudy} onRemove={() => removeTask(task.id)} />;
+      default:
+        return null;
+    }
+  };
+
+  return (
+    <SafeAreaView style={styles.container}>
+      <View style={styles.topContainer}>
+        <Image style={styles.topPicture} source={Goose1} />
+        <View style={styles.topTextsContainers}>
+          <Text style={styles.topWelcome}>Welcome</Text>
+          <Text style={styles.topName}>Vickey Chen</Text>
+        </View>
+        <View style={styles.topLevelContainer}>
+          <Text style={styles.topLevel}>Lv. 1</Text>
+        </View>
+      </View>
+
+      <View style={styles.factContainer}>
+        <Text style={styles.factHeader}>Did you know...</Text>
+        <Text style={styles.factText}>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi earum accusantium nesciunt nisi eaque blanditiis
+          omnis saepe autem, est, amet provident error eligendi. Fuga iure ab accusamus est necessitatibus voluptatibus.
+        </Text>
+      </View>
+
+      <View style={styles.taskContainer}>
+        <Text style={styles.taskHeader}>Earn Points</Text>
+        {tasks.length > 0 ? tasks.map(renderTask) : <Image style={styles.taskedFinishedImages} source={HighFiveGoose}/>}
+      </View>
+    </SafeAreaView>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -95,6 +120,7 @@ const styles = StyleSheet.create({
         height: '100%',
         paddingHorizontal: 30,
         paddingTop: 50,
+        paddingBottom: 55,
         display: 'flex',
         flexDirection: 'column',
         gap: 24
@@ -106,7 +132,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
     },
     topPicture: {
-        width: 45,
+        width: 50,
         aspectRatio: 1,
         backgroundColor: 'black',
         borderRadius: 100
@@ -123,7 +149,7 @@ const styles = StyleSheet.create({
     },
     topName: {
         color: "#1F1F1F",
-        fontSize: 16,
+        fontSize: 20,
     },
     topLevelContainer: {
         height: 45,
@@ -135,7 +161,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 16
     },
     topLevel: {
-        fontSize: 12,
+        fontSize: 16,
     },
 
 
@@ -166,6 +192,11 @@ const styles = StyleSheet.create({
     taskHeader: {
         color: '#1F1F1F',
         fontSize: 20
+    },
+    taskedFinishedImages:{
+        width: '100%',
+        height: 300,
+        resizeMode: 'contain'
     },
 
 
