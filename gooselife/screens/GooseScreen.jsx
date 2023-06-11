@@ -1,49 +1,45 @@
 import React from 'react'
 import { StyleSheet, View, SafeAreaView, Image, Text, TextInput, Pressable, ImageBackground } from 'react-native'
 import GooseBackground from '../assets/GooseBackground.png'
-// const Goose = ({ Name, Level, Program }) => {
-//     return (
-//       <View style={styles.gooseContainer}>
-//         <Image style={styles.gooseProfile}></Image>
-//         <View style={styles.gooseTexts}>
-//             <Text style={styles.gooseName}>{Name}</Text>
-//             <Text style={styles.gooseLevel}>{Level}</Text>
-//         </View>
-//         <Text style={styles.gooseProgram}>{Program}</Text>
-//       </View>
-//     )
-//   }
+import adultGoose from '../assets/adultGoose.png'
+import babyGoose from '../assets/babyGoose.png'
+import eggGoose from '../assets/eggGoose.png'
+import heart from '../assets/heart.png'
+import brain from '../assets/brain.png'
 
 export default function GooseScreen() {
+    const level = 0
     return (
         <SafeAreaView style={styles.container}>
             <ImageBackground source={GooseBackground} style={styles.backgroundImage}></ImageBackground>
             <View style={styles.statsContainer}>
-                <Image style={styles.statsImage}></Image>
+                <Image style={styles.statsImage} source={heart}></Image>
                 <View style={styles.statsProgress}>
-                    <Text style={styles.stats}>Level 2</Text>
                     <View style={styles.statsProgressTotal}></View>
                     <View style={styles.statsProgressCurrent}></View>
                 </View>
             </View>
 
             <View style={styles.statsContainer}>
-                <Image style={styles.statsImage}></Image>
+                <Image style={styles.statsImage} source={brain}></Image>
                 <View style={styles.statsProgress}>
-                    <Text style={styles.stats}>Level 2</Text>
                     <View style={styles.statsProgressTotal}></View>
                     <View style={styles.statsProgressCurrent}></View>
                 </View>
             </View>
 
-            <View style={styles.levelContainer}>
-                <Text style={styles.level}>Level 3</Text>
-                <View style={styles.levelProgress}>
-                    <View style={styles.levelProgressTotal}></View>
-                    <View style={styles.levelProgressCurrent}></View>
+            <View style={styles.gooseContainer}>
+                <Image style={styles.gooseImage} source={level <= 3 ? eggGoose : level <= 10 ? babyGoose : adultGoose}></Image>
+                <View style={styles.levelContainer}>
+                    <Text style={styles.level}>Level {level + 1}</Text>
+                    <View style={styles.levelProgress}>
+                        <View style={styles.levelProgressTotal}></View>
+                        <View style={styles.levelProgressCurrent}></View>
+                    </View>
+                    <Text style={styles.levelCurrent}>Level {level}</Text>
                 </View>
-                <Text style={styles.levelCurrent}>Level 2</Text>
             </View>
+
 
             <View style={styles.actionsContainer}>
                 <View style={styles.actionsButton}>
@@ -72,7 +68,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#F6F5FC',
         width: '100%',
         height: '100%',
-        padding: 30,
+        paddingHorizontal: 30,
+        paddingTop: 50,
         display: 'flex',
         flexDirection: 'column',
         gap: 24
@@ -95,31 +92,49 @@ const styles = StyleSheet.create({
         gap: 16
     },
     statsImage: {
-        width: 24,
+        width: 36,
         aspectRatio: 1,
-        backgroundColor: 'black'
+        resizeMode: 'contain'
     },
     statsProgress: {
         flexGrow: 1,
-        height: 10,
+        height: 20,
         position: 'relative'
     },
     statsProgressTotal: {
         position: 'absolute',
-        height: 10,
-        borderRadius: 5,
+        height: 20,
+        borderRadius: 10,
         width: '100%',
         backgroundColor: '#204940',
         opacity: 0.5
     },
     statsProgressCurrent: {
         position: 'absolute',
-        height: 10,
-        borderRadius: 5,
-        width: "20%",
+        height: 20,
+        borderRadius: 10,
+        width: '20%',
         backgroundColor: '#204940',
     },
 
+
+    gooseContainer: {
+        display: 'flex',
+        flexGrow: 1,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderWidth: 2,
+        borderColor: 'black'
+    },
+    gooseImage: {
+        width: 600,
+        height: 300,
+        resizeMode: 'contain',
+        position: 'absolute',
+        bottom: 0,
+
+    },
 
     levelContainer: {
         display: 'flex',
@@ -133,23 +148,22 @@ const styles = StyleSheet.create({
         fontSize: 12,
     },
     levelProgress: {
-        width: 20,
+        width: 30,
         aspectRatio: 1/8,
         position: 'relative'
     },
     levelProgressTotal: {
         position: 'absolute',
-        width: 20,
-        borderRadius: 10,
+        width: 30,
+        borderRadius: 15,
         height: '100%',
-        backgroundColor: '#204940',
-        opacity: 0.5,
+        backgroundColor: '#EACB76',
         bottom: 0
     },
     levelProgressCurrent: {
         position: 'absolute',
-        width: 20,
-        borderRadius: 10,
+        width: 30,
+        borderRadius: 15,
         height: "20%",
         backgroundColor: '#204940',
         bottom: 0
