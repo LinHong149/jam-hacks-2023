@@ -1,5 +1,6 @@
 import React from 'react'
 import { StyleSheet, View, SafeAreaView, Image, Text } from 'react-native'
+import Goose1 from '../assets/Goose1.png'
 
 const TimedTask = ({ isMeal }) => {
     return (
@@ -60,7 +61,7 @@ export default function HomeScreen() {
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.topContainer}>
-                <Image style={styles.topPicture}></Image>
+                <Image style={styles.topPicture} source={Goose1}></Image>
                 <View style={styles.topTextsContainers}>
                     <Text style={styles.topWelcome}>Welcome</Text>
                     <Text style={styles.topName}>Vickey Chen</Text>
@@ -92,7 +93,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#F6F5FC',
         width: '100%',
         height: '100%',
-        padding: 30,
+        paddingHorizontal: 30,
+        paddingTop: 50,
         display: 'flex',
         flexDirection: 'column',
         gap: 24

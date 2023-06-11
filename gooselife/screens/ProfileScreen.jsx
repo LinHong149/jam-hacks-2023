@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, SafeAreaView, Image, Text, TextInput, Pressable } from 'react-native';
+import Goose1 from '../assets/Goose1.png'
 
 const Selection = ({ Info, selected, onPress }) => {
   const buttonStyle = selected ? styles.selectionButtonPressed : styles.selectionButton;
@@ -53,8 +54,8 @@ export default function ProfileScreen() {
     return (
       <SafeAreaView style={styles.container}>
             <View style={styles.profileContainer}>
-                <Image style={styles.profileImage}></Image>
-                <Text style={styles.profileName}>Name</Text>
+                <Image style={styles.profileImage} source={Goose1}></Image>
+                <Text style={styles.profileName}>Quackers</Text>
             </View>
 
 
@@ -137,7 +138,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#F6F5FC',
         width: '100%',
         height: '100%',
-        padding: 30,
+        paddingHorizontal: 30,
+        paddingTop: 50,
         display: 'flex',
         flexDirection: 'column',
         gap: 24
@@ -152,9 +154,10 @@ const styles = StyleSheet.create({
     },
     profileImage: {
         width: 120,
-        aspectRatio: 1,
+        height: 120,
+        // aspectRatio: 1,
         borderRadius: 100,
-        backgroundColor: 'black'
+        resizeMode: 'cover',
     },
     profileName: {
         fontSize: 24,

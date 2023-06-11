@@ -1,5 +1,9 @@
 import React from 'react'
 import { StyleSheet, View, SafeAreaView, Image, Text, TextInput, Pressable } from 'react-native'
+import Goose1 from '../assets/Goose1.png'
+import Goose2 from '../assets/Goose2.png'
+import Goose3 from '../assets/Goose3.png'
+import Goose4 from '../assets/Goose4.png'
 
 const Filter = () => {
     return (
@@ -7,10 +11,10 @@ const Filter = () => {
     )
 }
 
-const Goose = ({ Name, Level, Program }) => {
+const Goose = ({ Name, Level, Program, Picture }) => {
     return (
       <View style={styles.gooseContainer}>
-        <Image style={styles.gooseProfile}></Image>
+        <Image style={styles.gooseProfile} source={Picture}></Image>
         <View style={styles.gooseTexts}>
             <Text style={styles.gooseName}>{Name}</Text>
             <Text style={styles.gooseLevel}>{Level}</Text>
@@ -33,9 +37,10 @@ export default function FYGScreen() {
 
             <View style={styles.resultsContainer}>
                 <Text style={styles.resultsHeader}>Search Results</Text>
-                <Goose style={styles.resultsGoose} Name='Ri Hong' Level='Lv. 32' Program='CS'/>   
-                <Goose style={styles.resultsGoose} Name='Ri Hong' Level='Lv. 32' Program='CS'/>   
-                <Goose style={styles.resultsGoose} Name='Ri Hong' Level='Lv. 32' Program='CS'/>   
+                <Goose style={styles.resultsGoose} Name='Ri Hong' Level='Lv. 32' Program='CS' Picture={Goose1}/>   
+                <Goose style={styles.resultsGoose} Name='Ri Hong' Level='Lv. 32' Program='CS' Picture={Goose2}/>   
+                <Goose style={styles.resultsGoose} Name='Ri Hong' Level='Lv. 32' Program='CS' Picture={Goose3}/>   
+                <Goose style={styles.resultsGoose} Name='Ri Hong' Level='Lv. 32' Program='CS' Picture={Goose4}/>   
             </View>
 
 
@@ -50,7 +55,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#F6F5FC',
         width: '100%',
         height: '100%',
-        padding: 30,
+        paddingHorizontal: 30,
+        paddingTop: 50,
         display: 'flex',
         flexDirection: 'column',
         gap: 24
@@ -98,6 +104,11 @@ const styles = StyleSheet.create({
         color: '#1F1F1F',
         fontSize: 16
     },
+    // resultsGoose: {
+    //     width: 36,
+    //     height: 36,
+    //     borderRadius: 
+    // },
 
     
     gooseContainer: {
@@ -111,9 +122,9 @@ const styles = StyleSheet.create({
     },
 
     gooseProfile: {
-        width: 48,
+        width: 52,
         aspectRatio: 1,
-        backgroundColor: 'black'
+        borderRadius: 100
     },
     gooseTexts: {
         display: 'flex',
