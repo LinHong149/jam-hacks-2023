@@ -1,3 +1,7 @@
+# GooseLife
+
+[Check out GooseLife on Devpost!](https://devpost.com/software/gooselife)
+
 # Inspiration
 
 With the University of Waterloo being such a huge part in this hackathon, we decided to go about tackling a huge problem that students face which is their negative habits. When we asked UWaterloo students on campus, the majority of them admitted to having bad habits such as staying up very late, skipping meals, having a poor social life and procrastinating often. And so, with these problems in mind, our team decided create an interactive and fun app that resolves these poor habits.
