@@ -6,9 +6,16 @@
 
 With the University of Waterloo being such a huge part in this hackathon, we decided to go about tackling a huge problem that students face which is their negative habits. When we asked UWaterloo students on campus, the majority of them admitted to having bad habits such as staying up very late, skipping meals, having a poor social life and procrastinating often. And so, with these problems in mind, our team decided create an interactive and fun app that resolves these poor habits.
 
+![Initial planning] (https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/505/760/datas/gallery.jpg)
+
 # What it does
 
 The app is essentially designed to improve students general well being such as sleeping and eating on time, exercising regularly and of course, staying clean. The app does this all through a gamified app, utilizing a stats and points system in which students are rewarded for their efforts in bettering their wellbeing. Furthermore, to keep the UW spirit, the app is themed around the infamous Waterloo geese where everyone's avatar is a goose. We even went one step further to create a level system where students can level up their own peroneal goose by performing tasks! With this goose feature we also implemented a "Connect with Geese" page to allow for more socialization. This page contains a search bar at the top which helps users filter the people they want to find based on gender, year of study, exercise and study level (Level 0-5). The app then recommends different Geese that are suitable toward the filter. This feature was created in hopes that it would allow students to connect with like-minded individuals and ultimately foster a sense of community.
+
+![Level 0 goose] (https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/505/762/datas/gallery.jpg)
+![Home Screen] (https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/505/766/datas/gallery.jpg)
+![Profile page for geese] (https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/505/763/datas/gallery.jpg)
+![Connect with geese] (https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/505/767/datas/gallery.jpg)
 
 # How we built it
 
